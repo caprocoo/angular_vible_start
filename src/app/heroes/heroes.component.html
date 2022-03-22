@@ -1,0 +1,22 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <li *ngFor="let hero of heroes" >
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero"
+        (click)="delete(hero)">x</button>
+    </li>
+    
+</ul>
+
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+<div>
+    <label for="new-hero">Hero name: </label>
+    <input id="new-hero" #heroName />
+  
+    <!-- (click) 이벤트를 감지하면 현재값을 인자로 전달하면서 add() 함수를 실행하고, 입력 필드를 비웁니다. -->
+    <button class="add-button" (click)="add(heroName.value); heroName.value=''">
+      Add hero
+    </button>
+  </div>
